@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import easygui as eg
+from incolumepy.prospect.remove_bkgrounds.rmbg import rm_bg
+from pathlib import Path
+import logging
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+logFormat = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s;' \
+            ' %(funcName)s; %(threadName)s; %(thread)d; %(message)s'
+logging.basicConfig(level=logging.INFO, format=logFormat)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def run():
+    input_path = eg.fileopenbox(title='Select image file')
+    output_path = eg.filesavebox(title='Save file to..')
+    logging.info(f'{type(input_path)} {input_path}')
+    logging.info(f'{type(output_path)} {output_path}')
+    return rm_bg(input_path, output_path)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    run()
