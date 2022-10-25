@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "incolumepy.prospect.remove_bkgrounds"
-version = "0.2.0-alpha.0"
+version = "0.2.0-alpha.1"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
